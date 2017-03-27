@@ -6,6 +6,8 @@
     <meta charset="utf-8" />
     <title>Escuela [ @ViewBag.Title ]</title>
     <link href="~/Assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Assets/css/app.css" rel="stylesheet" />
+    <link href="~/Assets/css/font-awesome.css" rel="stylesheet" />
 </head>
 <body>
     <!-- Codigo para el header de la pagina -->
@@ -16,21 +18,26 @@
         <a class="navbar-brand" href="#">Martin Fierro</a>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
-                <li class="nav-item active"><a class="nav-link" href="#">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Features</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Pricing</a></li>                
+                <li class="nav-item active"><a class="nav-link" href="~/Home/">Home</a></li>
             </ul>
         </div>
     </nav>
-    <br></br>
+
+    <br />
+
     <div class="container jumbotron">
-        <h1 class="display-3">Escuela Version 1.0</h1>
-    </div>
-    <div class="container">
-        @RenderBody()
+        <h1 class="display-4 text-center">Escuela Version 1.0</h1>
     </div>
 
+    @RenderBody()
+    
+    <br />
+
+    <nav class="navbar sticky-bottom  navbar-inverse bg-inverse">
+        <a class="navbar-brand text-center" href="#">Copyright &copy; Martin Fierro Robles</a>
+    </nav>
     <!-- Codigo para el footer de pagina -->
+
     <script src="~/Assets/js/jquery.js"></script>
     <script src="~/Assets/js/bootstrap.min.js"></script>
 </body>

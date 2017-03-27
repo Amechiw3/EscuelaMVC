@@ -17,6 +17,6 @@ namespace EscuelaMVC.Models
             base.OnModelCreating(modelBuilder);
         }
 
-        public virtual DbSet<Alumnos> Alumno { get; set; }
+        public virtual DbSet<Alumno> Alumno { get; set; }
     }
 }

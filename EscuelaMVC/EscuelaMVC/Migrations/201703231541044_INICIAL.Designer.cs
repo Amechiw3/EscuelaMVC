@@ -13,7 +13,7 @@ namespace EscuelaMVC.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201703221557313_INICIAL"; }
+            get { return "201703231541044_INICIAL"; }
         }
         
         string IMigrationMetadata.Source

@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Catalogo de Alumnos";
+    List<EscuelaMVC.Models.Alumno> Datos = ViewBag.Datos;
+    //EscuelaMVC.ViewModel.AlumnoViewModel.listarContenido();
+}
+
+<div class="modal-header">
+    <h5 class="modal-title">Detalles de @Datos[0].sNombre @Datos[0].sApellido</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div class="container">
+            @foreach (EscuelaMVC.Models.Alumno item in Datos)
+            {
+                <div class="form-group row">
+                    <label for="Nombre" class="col-md-3 col-form-label text-capitalize">Nombre</label>
+                    <div class="col-md-9">
+                        <input class="form-control" type="text" value="@item.sNombre @item.sApellido" id="Nombre" readonly>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="Grupo" class="col-md-3 col-form-label text-capitalize">Grupo</label>
+                    <div class="col-md-9">
+                        <input class="form-control" type="text" value="@item.sGrupo" id="Grupo" readonly>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="Imagen" class="col-md-3 col-form-label text-capitalize">Imagen</label>
+                    <div class="col-md-9">
+                        <input class="form-control" type="text" value="@item.sImagen" id="Imagen" readonly>
+                    </div>
+                </div>
+            }
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-primary">Save changes</button>
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+</div>

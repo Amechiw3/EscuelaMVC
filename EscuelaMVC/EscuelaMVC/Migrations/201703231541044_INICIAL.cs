@@ -8,14 +8,14 @@ namespace EscuelaMVC.Migrations
         public override void Up()
         {
             CreateTable(
-                "dbo.Alumnos",
+                "dbo.Alumnoes",
                 c => new
                     {
                         pkAlumnos = c.Int(nullable: false, identity: true),
-                        sNombre = c.String(nullable: false),
-                        sApellido = c.String(nullable: false),
-                        sGrupo = c.String(nullable: false),
-                        sImagen = c.String(),
+                        sNombre = c.String(nullable: false, unicode: false),
+                        sApellido = c.String(nullable: false, unicode: false),
+                        sGrupo = c.String(nullable: false, unicode: false),
+                        sImagen = c.String(unicode: false),
                         bStatus = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.pkAlumnos);
@@ -24,7 +24,7 @@ namespace EscuelaMVC.Migrations
         
         public override void Down()
         {
-            DropTable("dbo.Alumnos");
+            DropTable("dbo.Alumnoes");
         }
     }
 }

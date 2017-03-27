@@ -1,7 +1,126 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Catalogo de Alumnos";
+    List<EscuelaMVC.Models.Alumno> Datos = ViewBag.Datos;
+    //EscuelaMVC.ViewModel.AlumnoViewModel.listarContenido();
 }
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-primary">
+                <div class="card-header text-center">
+                    <h4>Catalogo de Alumnos</h4>
+                </div>
+                <table class="table table-inverse table-hover card-block">
+                    <thead>
+                        <!--Encabezado-->
+                        <tr>
+                            <th>Codigo</th>
+                            <th>Nombre</th>
+                            <th>Grupo</th>
+                            <th>Imagen</th>
+                            <th>
+                                <button class="btn btn-outline-primary" onclick="addUser()">
+                                    <span class="fa fa-plus"></span>
+                                </button>
+                            </th>
+                        </tr>
+                        <!--/Encabezado-->
+                    </thead>
+                    <tbody>
+                        <!--Datos-->
+                        @foreach (EscuelaMVC.Models.Alumno item in Datos)
+                        {
+                            <tr>
+                                <td>@item.pkAlumnos</td>
+                                <td>@item.sNombre @item.sApellido</td>
+                                <td>@item.sGrupo</td>
+                                <td>@item.sImagen</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <a href="#" class="btn btn-outline-secondary btndetalles" onclick="verdet(@item.pkAlumnos)" data-value="@item.pkAlumnos">
+                                            <i class="fa fa-eye" aria-hidden="true"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-outline-success btndetalles" onclick="verdet(@item.pkAlumnos)" data-value="@item.pkAlumnos">
+                                            <i class="fa fa-pencil-square" aria-hidden="true"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-outline-danger btndetalles" onclick="verdet(@item.pkAlumnos)" data-value="@item.pkAlumnos">
+                                            <i class="fa fa-trash" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                        <!--/Datos-->
+                    </tbody>
+                </table>
+                <div class="card-footer">
+                    <p>Registros: @Datos.Count</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-<h2>Index</h2>
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div id="contenido"></div>
+        </div>
+    </div>
+</div>
 
+<div class="modal fade" id="modalAdd">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Agregar nuevo alumno</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                    <div class="form-group row">
+                        <label for="Nombre" class="col-md-3 col-form-label text-capitalize">Nombre</label>
+                        <div class="col-md-9">
+                            <input class="form-control" type="text" id="Nombre">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="Grupo" class="col-md-3 col-form-label text-capitalize">Grupo</label>
+                        <div class="col-md-9">
+                            <input class="form-control" type="text" id="Grupo">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="Imagen" class="col-md-3 col-form-label text-capitalize">Imagen</label>
+                        <div class="col-md-9">
+                            <input class="form-control" type="text" id="Imagen">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@{
+    <script type="text/javascript">
+        var verdet = function (id) {
+            $("#contenido").load("/Home/VerDetalle/" + id, function () {
+                $('#myModal').modal("show");
+            });
+        }
+        
+        var addUser = function() {
+            $('#modalAdd').modal("show");            
+        }
+    </script>
+}

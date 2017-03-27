@@ -11,6 +11,7 @@ namespace EscuelaMVC.Migrations
         {
             AutomaticMigrationsEnabled = false;
             SetSqlGenerator("MySql.Data.MySqlClient", new MySql.Data.Entity.MySqlMigrationSqlGenerator());
+
         }
 
         protected override void Seed(EscuelaMVC.Models.DataModel context)

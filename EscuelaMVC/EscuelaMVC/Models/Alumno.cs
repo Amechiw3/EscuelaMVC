@@ -9,8 +9,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EscuelaMVC.Models
 {
-    [Table("Alumnos")]
-    public class Alumnos
+    public class Alumno
     {
         [Key]
         public int pkAlumnos { get; set; }
@@ -28,7 +27,7 @@ namespace EscuelaMVC.Models
 
         public Boolean bStatus { get; set; }
 
-        public Alumnos()
+        public Alumno()
         {
             this.bStatus = true;
         }
