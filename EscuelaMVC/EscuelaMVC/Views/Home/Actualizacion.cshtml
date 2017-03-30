@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewBag.Title = "Actualizando Datos";
+    EscuelaMVC.Models.Alumno Datos = ViewBag.Datos;
+    //EscuelaMVC.ViewModel.AlumnoViewModel.listarContenido();
+}
+
+<div class="modal-header"> <!-- HEADER -->
+    <h5 class="modal-title">Actualizar a @Datos.sNombre @Datos.sApellido</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<div class="modal-body"> <!--   BODY -->
+    <div class="container">
+        @using (Html.BeginForm("Actualizar", "Home", FormMethod.Post))
+        {
+            <input type="hidden" name="txtpkalumno" value="@Datos.pkAlumnos"/>
+            <!-- Nombre -->
+            <div class="form-group row">
+                <label for="Nombre" class="col-md-3 col-form-label text-capitalize">Nombre</label>
+                <div class="col-md-9">
+                    <input class="form-control" type="text" value="@Datos.sNombre" placeholder="@Datos.sNombre" id="Nombre" name="txtNombre" />
+                </div>
+            </div>
+            <!-- /Nombre -->
+
+            <!-- Apellido -->
+            <div class="form-group row">
+                <label for="Nombre" class="col-md-3 col-form-label text-capitalize">Apellido</label>
+                <div class="col-md-9">
+                    <input class="form-control" type="text" value="@Datos.sApellido" placeholder="@Datos.sApellido" id="Apellido" name="txtApellido" />
+                </div>
+            </div>
+            <!-- /Apellido -->
+
+            <!-- Grupo -->
+            <div class="form-group row">
+                <label for="Grupo" class="col-md-3 col-form-label text-capitalize">Grupo</label>
+                <div class="col-md-9">
+                    <input class="form-control" type="text" value="@Datos.sGrupo" placeholder="@Datos.sGrupo" id="Grupo" name="txtGrupo" />
+                </div>
+            </div>
+            <!-- /Grupo -->
+
+            <!-- Bottones-->
+            <div class="form-group row">
+                <div class="col-md-3"></div>
+                <div class="col-md-9">
+                    <input type="submit" class="btn btn-primary" value="Actualizar" />
+                    <input type="reset" class="btn btn-secondary" value="Limpiar" />
+                </div>
+            </div>
+            <!--/Bottones-->
+        }
+    </div>
+</div>
+
+<div class="modal-footer"> <!-- FOOTER -->
+    <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+</div>
+

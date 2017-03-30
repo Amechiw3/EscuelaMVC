@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Actualizando Datos";
+    EscuelaMVC.Models.Alumno Datos = ViewBag.Datos;
+    //EscuelaMVC.ViewModel.AlumnoViewModel.listarContenido();
+}
+
+<div class="modal-header">
+    <!-- HEADER -->
+    <h5 class="modal-title">Eliminar a @Datos.sNombre @Datos.sApellido</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<div class="modal-body">
+    <!--   BODY -->
+    <div class="container">
+        <h4 class="text-capitalize text-center">Datos a eliminar</h4>
+        <div class="alert alert-warning col-md-12" role="alert">
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-warning list-group-item-action">
+                    Nombre:&nbsp;<strong>@Datos.sNombre</strong>
+                </li>
+                <li class="list-group-item list-group-item-warning list-group-item-action">
+                    Apellido:&nbsp;<strong>@Datos.sApellido</strong>
+                </li>
+                <li class="list-group-item list-group-item-warning list-group-item-action">
+                    Grupo:&nbsp;<strong>@Datos.sGrupo</strong>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="modal-footer">
+    <!-- FOOTER -->
+    @using (Html.BeginForm("Borrar", "Home", FormMethod.Post))
+    {
+        <input type="hidden" name="txtpkalumno" value="@Datos.pkAlumnos" />
+
+        <input type="submit" class="btn btn-danger" value="Eliminar" />
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+    }
+</div>
